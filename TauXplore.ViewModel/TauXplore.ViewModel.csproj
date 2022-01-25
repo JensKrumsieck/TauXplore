@@ -10,6 +10,7 @@
 		<PackageReference Include="ChemSharp.Molecules.HelixToolkit" Version="1.0.14" />
 		<PackageReference Include="JensKrumsieck.TinyMVVM" Version="1.0.0" />
 		<PackageReference Include="ChemSharp.Molecules" Version="1.0.14" />
+		<PackageReference Include="MIConvexHull" Version="1.1.19.1019" />
 	</ItemGroup>
 
 </Project>

@@ -1,7 +1,10 @@
 ﻿using ChemSharp.Molecules;
 using ChemSharp.Molecules.HelixToolkit;
+using HelixToolkit.Wpf;
+using MIConvexHull;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using TinyMVVM;
 
 namespace TauXplore.ViewModel;
@@ -29,6 +32,7 @@ public class MainViewModel : ListingViewModel<AnalysisViewModel>
             Items.Add(analysis);
             SelectedIndex = Items.IndexOf(analysis);
         }
+        MeshFromHull();
         Validate();
     }
 
@@ -48,6 +52,30 @@ public class MainViewModel : ListingViewModel<AnalysisViewModel>
             }
         }
     }
+    public void MeshFromHull()
+    {
+        Polyhedra.Children.Clear();
+        foreach (var analysis in Items)
+        {
+            var verts = from atom in analysis.CoordinationSphere
+                        select new DefaultVertex() { Position = new double[] { atom.Location.X, atom.Location.Y, atom.Location.Z } };
+
+            var hull = ConvexHull.Create(verts.ToArray());
+            var mb = new MeshBuilder();
+            foreach (var face in hull.Result.Faces)
+            {
+                var v1 = face.Vertices[0].Position;
+                var p1 = new Point3D(v1[0], v1[1], v1[2]);
+                var v2 = face.Vertices[1].Position;
+                var p2 = new Point3D(v2[0], v2[1], v2[2]);
+                var v3 = face.Vertices[2].Position;
+                var p3 = new Point3D(v3[0], v3[1], v3[2]);
+                mb.AddTriangle(p1, p2, p3);
+            }
+            var model = new GeometryModel3D(mb.ToMesh(), MaterialHelper.CreateMaterial((Color)ColorConverter.ConvertFromString(analysis.Color)!));
+            Polyhedra.Children.Add(model);
+        }
+    }
 
     /// <summary>
     /// 3D Representation of Atoms
@@ -57,4 +85,6 @@ public class MainViewModel : ListingViewModel<AnalysisViewModel>
     /// 3D Representation of Bonds
     /// </summary>
     public ObservableCollection<Bond3D> Bonds3D { get; } = new ObservableCollection<Bond3D>();
+
+    public Model3DGroup Polyhedra { get; set; } = new Model3DGroup();
 }

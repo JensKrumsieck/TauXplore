@@ -56,8 +56,8 @@ public class AnalysisViewModel : ListItemViewModel<MainViewModel, AnalysisViewMo
             var tau = (a - b) / 60;
             StructuralParameters.Add(new KeyValueProperty() { Key = "Geometry Index τ₅", Value = tau });
         }
-        var vol = CoordinationSphere.MeshVolume();
-        StructuralParameters.Add(new KeyValueProperty() { Key = "Polyhedral Volume", Value = vol, Unit = "Å³" });
+        //var vol = CoordinationSphere.MeshVolume();
+        //StructuralParameters.Add(new KeyValueProperty() { Key = "Polyhedral Volume", Value = vol, Unit = "Å³" });
 
         var dmean = Distances.Sum(d => d.Value) / Distances.Count;
         StructuralParameters.Add(new KeyValueProperty() { Key = "Mean Distance: <D>", Value = dmean, Unit = "Å" });

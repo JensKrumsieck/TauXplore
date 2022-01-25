@@ -18,7 +18,7 @@
                     <h:DirectionalHeadLight/>
                     <controls:ItemsVisual3D ItemsSource="{Binding Atoms3D}"/>
                     <controls:ItemsVisual3D ItemsSource="{Binding Bonds3D}"/>
-                    <ModelVisual3D x:Name="foo"/>
+                <ModelVisual3D Content="{Binding Polyhedra}"/>
             </h:HelixViewport3D>
             <TabControl ItemsSource="{Binding Items}" Margin="0" BorderThickness="0" Padding="0"
                         SelectedIndex="{Binding SelectedIndex}" ItemContainerStyle="{DynamicResource TabHeaderStyle}">
