@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ChemSharp.Molecules.HelixToolkit" Version="1.0.14" />
+		<PackageReference Include="JensKrumsieck.TinyMVVM" Version="1.0.0" />
+		<PackageReference Include="ChemSharp.Molecules" Version="1.0.14" />
+	</ItemGroup>
+
+</Project>
