@@ -11,7 +11,12 @@ namespace TauXplore.ViewModel;
 public class MainViewModel : ListingViewModel<AnalysisViewModel>
 {
     private Molecule molecule;
+    private bool showPolyhedron;
+    private Model3DGroup polyhedra = new();
+
     public Molecule Molecule { get => molecule; set => Set(ref molecule, value); }
+    public bool ShowPolyhedron { get => showPolyhedron; set => Set(ref showPolyhedron, value, MeshFromHull); }
+
     public void LoadFile(string filename)
     {
         molecule = MoleculeFactory.Create(filename);
@@ -55,6 +60,7 @@ public class MainViewModel : ListingViewModel<AnalysisViewModel>
     public void MeshFromHull()
     {
         Polyhedra.Children.Clear();
+        if (!ShowPolyhedron) return;
         foreach (var analysis in Items)
         {
             var verts = from atom in analysis.CoordinationSphere
@@ -86,5 +92,5 @@ public class MainViewModel : ListingViewModel<AnalysisViewModel>
     /// </summary>
     public ObservableCollection<Bond3D> Bonds3D { get; } = new ObservableCollection<Bond3D>();
 
-    public Model3DGroup Polyhedra { get; set; } = new Model3DGroup();
+    public Model3DGroup Polyhedra { get => polyhedra; set => Set(ref polyhedra, value); }
 }

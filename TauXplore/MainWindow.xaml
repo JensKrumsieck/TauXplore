@@ -28,7 +28,7 @@
                             <Border Margin="20">
                                 <StackPanel>
                                     <StackPanel>
-                                        <Label Content="Coordinative Center" FontWeight="DemiBold"/>
+                                        <Label Content="Coordinative Center" FontWeight="DemiBold"/>                                        
                                         <Grid Margin="5">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="15"/>
@@ -38,8 +38,11 @@
                                             <materialDesign:PackIcon Kind="Molecule"/>
                                             <TextBlock Margin="2" Grid.Column="2"><Run Text="{Binding Title, Mode=OneWay}" FontWeight="DemiBold"/> with Coordination Number <Run Text="{Binding CoordinationNumber, Mode=OneWay}"/></TextBlock>
                                         </Grid>
-
-                                       <Label Content="Structural Parameters" FontWeight="DemiBold"/>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" DataContext="{Binding Parent}">
+                                            <CheckBox IsChecked="{Binding ShowPolyhedron}" VerticalAlignment="Center" />
+                                            <Label Content="Show Polyhedra" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <Label Content="Structural Parameters" FontWeight="DemiBold"/>
                                         <ItemsControl ItemsSource="{Binding StructuralParameters}"/>
                                     </StackPanel>
                                     <StackPanel>
