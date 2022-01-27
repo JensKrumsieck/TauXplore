@@ -9,7 +9,10 @@
         xmlns:viewmodel="clr-namespace:TauXplore.ViewModel;assembly=TauXplore.ViewModel" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
                         d:DataContext="{d:DesignInstance Type=viewmodel:MainViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="1000">
+        Title="TauXplore" Height="700" Width="1000" Icon="/Tau.png">
+    <commons:DefaultWindow.TitlebarContent>
+        <TextBlock VerticalAlignment="Center">TauXplore</TextBlock>
+    </commons:DefaultWindow.TitlebarContent>
     <Grid>
         <UniformGrid Columns="2" Rows="1">
                 <h:HelixViewport3D ShowViewCube="False" ShowCoordinateSystem="True" AllowDrop="True"
