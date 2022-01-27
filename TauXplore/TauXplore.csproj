@@ -9,6 +9,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+	  <ApplicationIcon>tau.ico</ApplicationIcon>
 	  <PackageProjectUrl>https://github.com/JensKrumsieck/TauXplore</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/JensKrumsieck/TauXplore</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
@@ -16,13 +17,14 @@
 	  <AssemblyName>TauXplore</AssemblyName>
 	  <IncludeAllContentForSelfExtract>True</IncludeAllContentForSelfExtract>
 	  <PublishSingleFile>True</PublishSingleFile>
-	  <!--<SelfContained>True</SelfContained>
-	<RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
-	  <PublishReadyToRun>True</PublishReadyToRun>
+	  <SelfContained>True</SelfContained>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishReadyToRun>True</PublishReadyToRun>
 	  <PublishReadyToRunShowWarnings>True</PublishReadyToRunShowWarnings>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="tau.ico" />
     <None Remove="Tau.png" />
   </ItemGroup>
 
@@ -37,6 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="tau.ico" />
     <Resource Include="Tau.png" />
   </ItemGroup>
 
