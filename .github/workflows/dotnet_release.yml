@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -c "Release"
+      run: dotnet publish -c "Release" -o tmp
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -27,4 +27,4 @@ jobs:
           prerelease: true
           title: "CI Build ${{ github.run_number }}"
           files: |
-            *.exe
+            tmp/*.exe
