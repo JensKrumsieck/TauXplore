@@ -1,5 +1,6 @@
 # TauXplore
 [![.NET](https://github.com/JensKrumsieck/TauXplore/actions/workflows/dotnet_release.yml/badge.svg)](https://github.com/JensKrumsieck/TauXplore/actions/workflows/dotnet_release.yml)
+[![GitHub Pre-Releases](https://img.shields.io/github/downloads-pre/JensKrumsieck/TauXplore/latest/total)](https://github.com/JensKrumsieck/TauXplore/releases/latest)
 
 
 Calculate τ (Tau) Values ([Geometry Index](https://en.wikipedia.org/wiki/Geometry_index)) for 4- and 5-coordinate complexes, some general coordination parameters and some often used octahedral distortion parameters.
